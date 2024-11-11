@@ -154,11 +154,12 @@ int main(int argc, char **argv)
       cv::imshow(image.first, image.second);
     }
     cv::Mat topView;
-    writer.drawTopView(topView);
-    if(!topView.empty()) {
-      cv::imshow("OKVIS 2 Top View", topView);
-    }
-    if(!images.empty() || !topView.empty()) {
+    // writer.drawTopView(topView);
+    // if(!topView.empty()) {
+    //   cv::imshow("OKVIS 2 Top View", topView);
+    // }
+    if (!images.empty() || !topView.empty())
+    {
       char b = cv::waitKey(2);
       if (b == 's') {
         cv::imwrite("saved.png", topView);
@@ -173,11 +174,11 @@ int main(int argc, char **argv)
         LOG(INFO) << "final full BA...";
         cv::Mat topView;
         estimator.doFinalBa();
-        writer.drawTopView(topView);
-        if (!topView.empty()) {
-          cv::imshow("OKVIS 2 Top View Final", topView);
-          cv::imwrite("okvis2_final_ba.png", topView);
-        }
+        // writer.drawTopView(topView);
+        // if (!topView.empty()) {
+        //   cv::imshow("OKVIS 2 Top View Final", topView);
+        //   cv::imwrite("okvis2_final_ba.png", topView);
+        // }
         cv::waitKey(1000);
       }
       estimator.writeFinalTrajectoryCsv();
