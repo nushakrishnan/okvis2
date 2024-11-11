@@ -148,23 +148,23 @@ int main(int argc, char **argv)
   int progress = 0;
   while (true) {
     estimator.processFrame();
-    std::map<std::string, cv::Mat> images;
-    estimator.display(images);
-    for(const auto & image : images) {
-      cv::imshow(image.first, image.second);
-    }
-    cv::Mat topView;
+    // std::map<std::string, cv::Mat> images;
+    // estimator.display(images);
+    // for(const auto & image : images) {
+    //   cv::imshow(image.first, image.second);
+    // }
+    // cv::Mat topView;
     // writer.drawTopView(topView);
     // if(!topView.empty()) {
     //   cv::imshow("OKVIS 2 Top View", topView);
     // }
-    if (!images.empty() || !topView.empty())
-    {
-      char b = cv::waitKey(2);
-      if (b == 's') {
-        cv::imwrite("saved.png", topView);
-      }
-    }
+    // if (!images.empty() || !topView.empty())
+    // {
+    //   char b = cv::waitKey(2);
+    //   if (b == 's') {
+    //     cv::imwrite("saved.png", topView);
+    //   }
+    // }
 
     // check if done
     if(!datasetReader->isStreaming()) {
