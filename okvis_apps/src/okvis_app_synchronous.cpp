@@ -151,12 +151,12 @@ int main(int argc, char **argv)
     std::map<std::string, cv::Mat> images;
     estimator.display(images);
     for(const auto & image : images) {
-      cv::imshow(image.first, image.second);
+      // cv::imshow(image.first, image.second);
     }
     cv::Mat topView;
     writer.drawTopView(topView);
     if(!topView.empty()) {
-      cv::imshow("OKVIS 2 Top View", topView);
+      // cv::imshow("OKVIS 2 Top View", topView);
     }
     if(!images.empty() || !topView.empty()) {
       char b = cv::waitKey(2);
@@ -175,7 +175,7 @@ int main(int argc, char **argv)
         estimator.doFinalBa();
         writer.drawTopView(topView);
         if (!topView.empty()) {
-          cv::imshow("OKVIS 2 Top View Final", topView);
+          // cv::imshow("OKVIS 2 Top View Final", topView);
           cv::imwrite("okvis2_final_ba.png", topView);
         }
         cv::waitKey(1000);
